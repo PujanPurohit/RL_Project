@@ -59,6 +59,28 @@ conda activate rl_project
 python train.py
 ```
 
+### Visualize a Saved Model
+
+For SSH or remote machines, save a GIF instead of trying to open a live window:
+
+```bash
+python visualize_model.py \
+  --model outputs/models/SAC_sparse_1776715258/smart_hand_model_300000_steps.zip \
+  --algo SAC \
+  --reward-type sparse \
+  --episodes 3 \
+  --mode gif \
+  --gl-backend egl
+```
+
+This creates a GIF under `outputs/visualizations/`.
+
+To see all saved checkpoints first:
+
+```bash
+python visualize_model.py
+```
+
 The script will:
 1. Create `outputs/models/` and `outputs/logs/` directories
 2. Initialize SAC or PPO model (configured in `config.py`)
